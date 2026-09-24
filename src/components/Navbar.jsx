@@ -62,6 +62,20 @@ export default function Navbar({ activePage, setActivePage }) {
 
   const activeLinks = isClasses ? classesNavLinks : printingNavLinks;
 
+  const smoothScrollTo = (hash) => {
+    if (!hash) return;
+    const el = document.querySelector(hash);
+    if (!el) return;
+    const headerEl = document.querySelector('header');
+    const headerHeight = headerEl ? headerEl.offsetHeight : 95;
+    const elementPosition = el.getBoundingClientRect().top + window.pageYOffset;
+    const offsetPosition = Math.max(0, elementPosition - headerHeight - 16);
+    window.scrollTo({
+      top: offsetPosition,
+      behavior: 'smooth',
+    });
+  };
+
   const handleNavClick = (link) => {
     if (link.isAction === 'page') {
       setActivePage(link.id);
@@ -70,17 +84,13 @@ export default function Navbar({ activePage, setActivePage }) {
       setActivePage(link.page);
       if (link.hash) {
         setTimeout(() => {
-          const el = document.querySelector(link.hash);
-          if (el) el.scrollIntoView({ behavior: 'smooth' });
-        }, 150);
+          smoothScrollTo(link.hash);
+        }, 200);
       } else {
         window.scrollTo({ top: 0, behavior: 'smooth' });
       }
     } else if (link.hash) {
-      const el = document.querySelector(link.hash);
-      if (el) {
-        el.scrollIntoView({ behavior: 'smooth' });
-      }
+      smoothScrollTo(link.hash);
     }
     setMobileMenuOpen(false);
   };

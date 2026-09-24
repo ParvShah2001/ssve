@@ -178,7 +178,7 @@ export default function PrintingPage({ setActivePage }) {
         {/* ========================================================================= */}
         {/* 2. SUPPORTED FILAMENTS (4 ONLY: PLA, PETG, TPU, PVA) */}
         {/* ========================================================================= */}
-        <section id="materials" className="py-10 sm:py-12 border-b border-orange-950/60">
+        <section id="materials" className="py-10 sm:py-12 border-b border-orange-950/60 scroll-mt-28">
           <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
             <div className="mb-6 flex flex-col sm:flex-row sm:items-end justify-between gap-2">
               <div>
@@ -268,7 +268,7 @@ export default function PrintingPage({ setActivePage }) {
         {/* ========================================================================= */}
         {/* 3. CAPABILITIES / APPLICATIONS (REASONABLE FOR HOBBYISTS & STUDENTS) */}
         {/* ========================================================================= */}
-        <section id="capabilities" className="py-10 sm:py-12 border-b border-orange-950/60 bg-[#120803]/60">
+        <section id="capabilities" className="py-10 sm:py-12 border-b border-orange-950/60 bg-[#120803]/60 scroll-mt-28">
           <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
             <div className="mb-6 flex flex-col sm:flex-row sm:items-end justify-between gap-2">
               <div>
@@ -317,7 +317,7 @@ export default function PrintingPage({ setActivePage }) {
         {/* ========================================================================= */}
         {/* 4. ONLINE CONTACT ONLY (NO PHYSICAL ADDRESS, NO MAPS) */}
         {/* ========================================================================= */}
-        <section id="contact" className="pt-10 sm:pt-12">
+        <section id="contact" className="pt-10 sm:pt-12 scroll-mt-28">
           <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
             <div className="bg-gradient-to-br from-[#261005] via-[#1a0c05] to-[#0c0806] border border-orange-500/30 rounded-3xl p-6 sm:p-8 backdrop-blur-md shadow-xl">
               <div className="grid grid-cols-1 lg:grid-cols-12 gap-8 items-center">

@@ -159,7 +159,13 @@ export default function ClassesPage({ setActivePage }) {
     }
     const el = document.getElementById('enquiry');
     if (el) {
-      el.scrollIntoView({ behavior: 'smooth' });
+      const headerEl = document.querySelector('header');
+      const headerHeight = headerEl ? headerEl.offsetHeight : 95;
+      const elementPosition = el.getBoundingClientRect().top + window.pageYOffset;
+      window.scrollTo({
+        top: Math.max(0, elementPosition - headerHeight - 16),
+        behavior: 'smooth',
+      });
     }
   };
 
@@ -230,16 +236,21 @@ export default function ClassesPage({ setActivePage }) {
               </div>
 
               {/* Right Column: Founder & Owner Card (5 cols) */}
-              <div id="faculty" className="lg:col-span-5">
+              <div id="faculty" className="lg:col-span-5 scroll-mt-28">
                 <div className="bg-slate-900/90 border border-blue-500/30 rounded-3xl p-6 sm:p-7 backdrop-blur-md shadow-xl space-y-4">
                   <div className="flex items-center gap-4">
                     <div className="w-20 h-20 sm:w-24 sm:h-24 rounded-2xl overflow-hidden border-2 border-blue-400 p-0.5 shadow-md shrink-0 bg-slate-800">
-                      <img
-                        src="/prof-jatin-shah.jpg"
-                        alt="Prof. Jatin Shah - Founder & Owner"
-                        loading="eager"
-                        className="w-full h-full object-cover rounded-xl"
-                      />
+                      <picture className="w-full h-full block">
+                        <source srcSet="/prof-jatin-shah.webp" type="image/webp" />
+                        <img
+                          src="/prof-jatin-shah.jpg"
+                          alt="Prof. Jatin Shah - Founder & Owner Shri Siddhivinayak Classes"
+                          width="96"
+                          height="96"
+                          loading="eager"
+                          className="w-full h-full object-cover rounded-xl"
+                        />
+                      </picture>
                     </div>
                     <div>
                       <span className="text-[10px] font-extrabold text-blue-400 tracking-wider uppercase">
@@ -279,7 +290,7 @@ export default function ClassesPage({ setActivePage }) {
         {/* ========================================================================= */}
         {/* 2. ACADEMIC PROGRAMS */}
         {/* ========================================================================= */}
-        <section id="courses" className="py-10 sm:py-14 border-b border-blue-900/40">
+        <section id="courses" className="py-10 sm:py-14 border-b border-blue-900/40 scroll-mt-28">
           <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
             <div className="mb-6 flex flex-col sm:flex-row sm:items-end justify-between gap-2">
               <div>
@@ -355,7 +366,7 @@ export default function ClassesPage({ setActivePage }) {
         {/* ========================================================================= */}
         {/* 3. DIRECT ENQUIRY & CLASSROOM LOCATION */}
         {/* ========================================================================= */}
-        <section id="enquiry" className="pt-10 sm:pt-14">
+        <section id="enquiry" className="pt-10 sm:pt-14 scroll-mt-28">
           <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
             <div className="grid grid-cols-1 lg:grid-cols-12 gap-8 items-start">
               

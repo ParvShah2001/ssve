@@ -37,34 +37,62 @@ export default function SSLogo({
     );
   };
 
+  const brandColor =
+    vertical === 'classes'
+      ? 'text-blue-400'
+      : vertical === 'printing'
+      ? 'text-orange-400'
+      : invert
+      ? 'text-white'
+      : 'text-slate-900';
+
   return (
     <div className={`flex items-center gap-2.5 sm:gap-3 ${className}`}>
       {/* Official Circular Ganesha-Gear Logo */}
       <div
         className={`${currentSize.box} relative flex items-center justify-center flex-shrink-0 group`}
       >
-        <img
-          src="/logo.png"
-          alt="Shri Siddhivinayak Logo"
-          className="w-full h-full object-contain filter drop-shadow-[0_2px_8px_rgba(0,0,0,0.5)] transition-transform duration-300 group-hover:scale-105"
-          loading="eager"
-          decoding="async"
-        />
+        <picture className="w-full h-full block">
+          <source srcSet="/logo.webp" type="image/webp" />
+          <img
+            src="/logo.png"
+            alt="Shri Siddhivinayak Official Emblem"
+            width="64"
+            height="64"
+            className="w-full h-full object-contain filter drop-shadow-[0_2px_8px_rgba(0,0,0,0.5)] transition-transform duration-300 group-hover:scale-105"
+            loading="eager"
+            decoding="async"
+          />
+        </picture>
       </div>
 
-      {/* Brand Text */}
+      {/* Brand Text - Inline and Matching Typography & Color */}
       {showText && (
-        <div className="flex flex-col text-left leading-tight">
+        <div className="flex flex-wrap items-baseline gap-x-2 gap-y-0.5 text-left leading-tight">
           <span
-            className={`font-extrabold tracking-tight font-heading ${currentSize.textTitle} ${
-              invert ? 'text-white' : 'text-slate-900'
-            }`}
+            className={`font-extrabold tracking-tight font-heading ${currentSize.textTitle} ${brandColor}`}
           >
             Shri Siddhivinayak
           </span>
-          <div className={`${currentSize.textSub} mt-0.5`}>
-            {getSubtitle()}
-          </div>
+          {vertical === 'classes' && (
+            <span
+              className={`font-extrabold tracking-tight font-heading ${currentSize.textTitle} text-blue-400`}
+            >
+              Engineering Classes
+            </span>
+          )}
+          {vertical === 'printing' && (
+            <span
+              className={`font-extrabold tracking-tight font-heading ${currentSize.textTitle} text-orange-400`}
+            >
+              3D Printing Service
+            </span>
+          )}
+          {vertical === 'generic' && (
+            <span className={`${currentSize.textSub} font-medium text-slate-400 self-center`}>
+              {getSubtitle()}
+            </span>
+          )}
         </div>
       )}
     </div>

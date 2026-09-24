@@ -1,0 +1,5 @@
+User-agent: *
+Allow: /
+
+# Direct links to XML Sitemap
+Sitemap: https://ssve.cc/sitemap.xml

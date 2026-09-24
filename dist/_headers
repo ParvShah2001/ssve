@@ -1,0 +1,27 @@
+# Global default headers for security & speed
+/*
+  X-Content-Type-Options: nosniff
+  X-Frame-Options: SAMEORIGIN
+  Referrer-Policy: strict-origin-when-cross-origin
+  Permissions-Policy: camera=(), microphone=(), geolocation=()
+  Access-Control-Allow-Origin: *
+
+# Immutable caching for Vite hashed assets (JS/CSS/Chunks)
+/assets/*
+  Cache-Control: public, max-age=31536000, immutable
+
+# Caching for media, logos, and fonts
+/*.webp
+  Cache-Control: public, max-age=2592000, stale-while-revalidate=86400
+/*.png
+  Cache-Control: public, max-age=2592000, stale-while-revalidate=86400
+/*.jpg
+  Cache-Control: public, max-age=2592000, stale-while-revalidate=86400
+/*.svg
+  Cache-Control: public, max-age=2592000, stale-while-revalidate=86400
+
+# HTML pages must revalidate immediately so deployments take effect instantly
+/*.html
+  Cache-Control: public, max-age=0, must-revalidate
+/
+  Cache-Control: public, max-age=0, must-revalidate

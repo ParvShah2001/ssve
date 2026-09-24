@@ -62,28 +62,81 @@ class ErrorBoundary extends React.Component {
 export default function App() {
   const [activePage, setActivePage] = useState('home');
 
-  // Sync with window.location.hash for shareable links and browser back/forward
-  useEffect(() => {
-    const handleHashChange = () => {
-      const hash = window.location.hash.replace('#', '').toLowerCase();
-      if (['home', 'classes', 'printing', 'quote'].includes(hash)) {
-        setActivePage(hash);
-      } else if (hash === 'about' || hash === 'contact') {
-        setActivePage('home');
-      }
-    };
+  // Helper to resolve page from clean URL path or legacy hash
+  const getPageFromUrl = () => {
+    const path = window.location.pathname.replace(/^\/+|\/+$/g, '').toLowerCase();
+    if (['classes', 'printing', 'quote'].includes(path)) {
+      return path;
+    }
+    const hash = window.location.hash.replace('#', '').toLowerCase();
+    if (['classes', 'printing', 'quote'].includes(hash)) {
+      return hash;
+    }
+    return 'home';
+  };
 
-    if (window.location.hash) {
-      handleHashChange();
+  // Sync with browser back/forward navigation (popstate)
+  useEffect(() => {
+    const initialPage = getPageFromUrl();
+    setActivePage(initialPage);
+
+    // Clean up any legacy hash to standard path
+    if (window.location.hash && ['classes', 'printing', 'quote'].includes(window.location.hash.replace('#', ''))) {
+      const cleanPath = initialPage === 'home' ? '/' : `/${initialPage}`;
+      window.history.replaceState({ page: initialPage }, '', cleanPath);
+    } else if (!window.history.state) {
+      window.history.replaceState({ page: initialPage }, '', window.location.pathname);
     }
 
-    window.addEventListener('hashchange', handleHashChange);
-    return () => window.removeEventListener('hashchange', handleHashChange);
+    const handlePopState = (e) => {
+      const targetPage = e.state?.page || getPageFromUrl();
+      setActivePage(targetPage);
+      window.scrollTo({ top: 0, behavior: 'smooth' });
+    };
+
+    window.addEventListener('popstate', handlePopState);
+    return () => window.removeEventListener('popstate', handlePopState);
   }, []);
 
+  // Dynamic SEO & Title updates per active page
+  useEffect(() => {
+    const seoMap = {
+      home: {
+        title: 'Shri Siddhivinayak | Premier Engineering Classes & 3D Printing Service',
+        desc: 'Premier Mumbai & Pune University engineering coaching by Prof. Jatin Shah (24+ yrs exp) in Navi Mumbai, and precision on-demand 3D printing & rapid prototyping service across India.',
+      },
+      classes: {
+        title: 'Engineering Classes Navi Mumbai | Prof. Jatin Shah | Shri Siddhivinayak',
+        desc: 'Exclusive engineering coaching for Mumbai & Pune University by Prof. Jatin Shah (BE Mechanical, 24+ yrs experience). Kopar Khairane, Navi Mumbai.',
+      },
+      printing: {
+        title: '3D Printing Service India | Rapid Prototyping & Custom STL | Shri Siddhivinayak',
+        desc: 'Precision online FDM 3D printing in PLA, PETG, TPU, and PVA. Upload STL files for live pricing, high tolerance, and doorstep delivery across India.',
+      },
+      quote: {
+        title: 'Instant 3D STL Quote Calculator | Online Slicing Pricing | Shri Siddhivinayak',
+        desc: 'Upload your 3D STL model for instant geometry analysis, volume calculation, infill density selection, and live automated quotation.',
+      },
+    };
+
+    const currentSeo = seoMap[activePage] || seoMap.home;
+    document.title = currentSeo.title;
+
+    const metaDesc = document.querySelector('meta[name="description"]');
+    if (metaDesc) {
+      metaDesc.setAttribute('content', currentSeo.desc);
+    }
+    const ogTitle = document.querySelector('meta[property="og:title"]');
+    if (ogTitle) {
+      ogTitle.setAttribute('content', currentSeo.title);
+    }
+  }, [activePage]);
+
   const handlePageChange = (pageId) => {
+    if (pageId === activePage) return;
     setActivePage(pageId);
-    window.location.hash = pageId === 'home' ? '' : pageId;
+    const newPath = pageId === 'home' ? '/' : `/${pageId}`;
+    window.history.pushState({ page: pageId }, '', newPath);
     window.scrollTo({ top: 0, behavior: 'smooth' });
   };
 
