@@ -260,65 +260,74 @@ export default function Navbar({ activePage, setActivePage }) {
         </div>
       </div>
 
-      {/* Mobile Drawer Menu */}
+      {/* Mobile Drawer Menu & Overlay */}
       {mobileMenuOpen && (
-        <div
-          className={`lg:hidden fixed inset-x-0 top-[calc(100%)] border-b shadow-2xl px-4 pt-4 pb-6 space-y-2 animate-fadeIn z-50 ${theme.mobileDrawerBg}`}
-        >
-          <div className="flex flex-col space-y-1">
-            {activeLinks.map((link) => {
-              if (link.highlight) {
+        <>
+          {/* Backdrop to close on click outside */}
+          <div
+            className="lg:hidden fixed inset-0 top-16 bg-black/60 backdrop-blur-xs z-40"
+            onClick={() => setMobileMenuOpen(false)}
+          />
+
+          {/* Drawer positioned directly under sticky header */}
+          <div
+            className={`lg:hidden absolute top-full inset-x-0 border-b shadow-2xl px-4 pt-4 pb-6 space-y-2 animate-fadeIn z-50 max-h-[calc(100vh-5rem)] overflow-y-auto ${theme.mobileDrawerBg}`}
+          >
+            <div className="flex flex-col space-y-1">
+              {activeLinks.map((link) => {
+                if (link.highlight) {
+                  return (
+                    <button
+                      key={link.id}
+                      onClick={() => handleNavClick(link)}
+                      className={`w-full text-left px-4 py-3 rounded-xl text-sm font-bold flex items-center justify-between transition mt-2 ${theme.highlightBtn}`}
+                    >
+                      <span className="flex items-center gap-2">
+                        {isClasses ? <GraduationCap className="w-4 h-4" /> : <Printer3DIcon className="w-4 h-4" />}
+                        {link.label}
+                      </span>
+                      <ArrowRight className="w-4 h-4" />
+                    </button>
+                  );
+                }
                 return (
                   <button
                     key={link.id}
                     onClick={() => handleNavClick(link)}
-                    className={`w-full text-left px-4 py-3 rounded-xl text-sm font-bold flex items-center justify-between transition mt-2 ${theme.highlightBtn}`}
+                    className="w-full text-left px-4 py-2.5 rounded-xl text-sm font-medium flex items-center justify-between text-slate-300 hover:text-white hover:bg-white/10 transition"
                   >
-                    <span className="flex items-center gap-2">
-                      {isClasses ? <GraduationCap className="w-4 h-4" /> : <Printer3DIcon className="w-4 h-4" />}
-                      {link.label}
-                    </span>
-                    <ArrowRight className="w-4 h-4" />
+                    <span>{link.label}</span>
+                    <ArrowRight className="w-4 h-4 opacity-40" />
                   </button>
                 );
-              }
-              return (
-                <button
-                  key={link.id}
-                  onClick={() => handleNavClick(link)}
-                  className="w-full text-left px-4 py-2.5 rounded-xl text-sm font-medium flex items-center justify-between text-slate-300 hover:text-white hover:bg-white/10 transition"
-                >
-                  <span>{link.label}</span>
-                  <ArrowRight className="w-4 h-4 opacity-40" />
-                </button>
-              );
-            })}
-          </div>
+              })}
+            </div>
 
-          {/* Mobile Contact Quick Actions */}
-          <div className="pt-4 mt-4 border-t border-white/10 grid grid-cols-2 gap-2 text-xs">
-            <a
-              href={`tel:${activePhoneRaw}`}
-              className="flex items-center justify-center gap-1.5 py-2.5 px-3 rounded-lg bg-white/10 text-white font-medium hover:bg-white/20 transition"
-            >
-              <Phone className="w-3.5 h-3.5 text-blue-400" />
-              Call Direct
-            </a>
-            <a
-              href={`https://wa.me/${activeWhatsapp}?text=${encodeURIComponent(
-                isClasses
-                  ? 'Hello Shri Siddhivinayak Classes, I would like to enquire about engineering coaching courses.'
-                  : 'Hello Shri Siddhivinayak 3D Printing, I want to submit a 3D model for quotation.'
-              )}`}
-              target="_blank"
-              rel="noreferrer"
-              className="flex items-center justify-center gap-1.5 py-2.5 px-3 rounded-lg bg-emerald-500/20 text-emerald-300 border border-emerald-500/40 font-medium hover:bg-emerald-500/30 transition"
-            >
-              <MessageSquare className="w-3.5 h-3.5 text-emerald-400" />
-              WhatsApp
-            </a>
+            {/* Mobile Contact Quick Actions */}
+            <div className="pt-4 mt-4 border-t border-white/10 grid grid-cols-2 gap-2 text-xs">
+              <a
+                href={`tel:${activePhoneRaw}`}
+                className="flex items-center justify-center gap-1.5 py-2.5 px-3 rounded-lg bg-white/10 text-white font-medium hover:bg-white/20 transition"
+              >
+                <Phone className="w-3.5 h-3.5 text-blue-400" />
+                Call Direct
+              </a>
+              <a
+                href={`https://wa.me/${activeWhatsapp}?text=${encodeURIComponent(
+                  isClasses
+                    ? 'Hello Shri Siddhivinayak Classes, I would like to enquire about engineering coaching courses.'
+                    : 'Hello Shri Siddhivinayak 3D Printing, I want to submit a 3D model for quotation.'
+                )}`}
+                target="_blank"
+                rel="noreferrer"
+                className="flex items-center justify-center gap-1.5 py-2.5 px-3 rounded-lg bg-emerald-500/20 text-emerald-300 border border-emerald-500/40 font-medium hover:bg-emerald-500/30 transition"
+              >
+                <MessageSquare className="w-3.5 h-3.5 text-emerald-400" />
+                WhatsApp
+              </a>
+            </div>
           </div>
-        </div>
+        </>
       )}
     </header>
   );

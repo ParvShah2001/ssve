@@ -68,28 +68,22 @@ export default function SSLogo({
 
       {/* Brand Text - Inline and Matching Typography & Color */}
       {showText && (
-        <div className="flex flex-wrap items-baseline gap-x-2 gap-y-0.5 text-left leading-tight">
-          <span
-            className={`font-extrabold tracking-tight font-heading ${currentSize.textTitle} ${brandColor}`}
-          >
+        <div className="text-left leading-tight font-heading font-extrabold tracking-tight">
+          <span className={`${currentSize.textTitle} ${brandColor}`}>
             Shri Siddhivinayak
           </span>
           {vertical === 'classes' && (
-            <span
-              className={`font-extrabold tracking-tight font-heading ${currentSize.textTitle} text-blue-400`}
-            >
+            <span className={`${currentSize.textTitle} text-blue-400 ml-1.5`}>
               Engineering Classes
             </span>
           )}
           {vertical === 'printing' && (
-            <span
-              className={`font-extrabold tracking-tight font-heading ${currentSize.textTitle} text-orange-400`}
-            >
+            <span className={`${currentSize.textTitle} text-orange-400 ml-1.5`}>
               3D Printing Service
             </span>
           )}
           {vertical === 'generic' && (
-            <span className={`${currentSize.textSub} font-medium text-slate-400 self-center`}>
+            <span className={`${currentSize.textSub} font-medium text-slate-400 ml-1.5 align-middle`}>
               {getSubtitle()}
             </span>
           )}
