@@ -94,7 +94,7 @@ export default function PrintingPage({ setActivePage }) {
   const printingWhatsapp = siteConfig.contact.printingWhatsapp || '919773842944';
 
   return (
-    <div className="min-h-screen bg-[#0c0806] text-slate-100 selection:bg-orange-500 selection:text-white relative overflow-hidden pb-12">
+    <article className="min-h-screen bg-[#0c0806] text-slate-100 selection:bg-orange-500 selection:text-white relative overflow-hidden pb-12">
       {/* Additive Manufacturing Grid Background */}
       <div className="fixed inset-0 pointer-events-none z-0">
         <div className="absolute inset-0 opacity-15 bg-[radial-gradient(#ea580c_1px,transparent_1px)] [background-size:28px_28px]" />
@@ -112,13 +112,13 @@ export default function PrintingPage({ setActivePage }) {
               
               <div className="inline-flex items-center gap-2 px-3.5 py-1.5 rounded-full bg-orange-950/80 border border-orange-500/40 text-orange-200 text-xs font-bold uppercase tracking-wider backdrop-blur-md">
                 <Printer3DIcon className="w-4 h-4 text-orange-400" />
-                <span>3D Printing & Prototyping (Online Service)</span>
+                <span>3D Printing &amp; Prototyping (Online Service)</span>
               </div>
 
               <h1 className="text-3xl sm:text-5xl font-extrabold text-white tracking-tight font-heading leading-tight">
-                Precision 3D Printing for Prototypes, Projects &{' '}
+                Custom 3D Printing &amp; Rapid Prototyping Service India—
                 <span className="bg-gradient-to-r from-orange-400 via-amber-300 to-orange-200 bg-clip-text text-transparent block mt-0.5">
-                  Makers.
+                  Precision Parts &amp; Models.
                 </span>
               </h1>
 
@@ -317,8 +317,22 @@ export default function PrintingPage({ setActivePage }) {
         {/* ========================================================================= */}
         {/* 4. ONLINE CONTACT ONLY (NO PHYSICAL ADDRESS, NO MAPS) */}
         {/* ========================================================================= */}
-        <section id="contact" className="pt-10 sm:pt-12 scroll-mt-28">
+        <section id="contact" aria-labelledby="contact-heading" className="pt-10 sm:pt-12 scroll-mt-28">
           <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div className="mb-6 flex flex-col sm:flex-row sm:items-end justify-between gap-2">
+              <div>
+                <span className="text-xs font-bold text-orange-400 tracking-wider uppercase">
+                  Instant Quotes &amp; Support
+                </span>
+                <h2 id="contact-heading" className="text-2xl sm:text-3xl font-extrabold text-white font-heading">
+                  Instant 3D STL Quotation &amp; Online Orders
+                </h2>
+              </div>
+              <p className="text-xs text-slate-400 max-w-md">
+                Upload your CAD models for instant automated pricing or chat directly with our fabrication team.
+              </p>
+            </div>
+
             <div className="bg-gradient-to-br from-[#261005] via-[#1a0c05] to-[#0c0806] border border-orange-500/30 rounded-3xl p-6 sm:p-8 backdrop-blur-md shadow-xl">
               <div className="grid grid-cols-1 lg:grid-cols-12 gap-8 items-center">
                 
@@ -368,9 +382,9 @@ export default function PrintingPage({ setActivePage }) {
                     <span className="text-xs font-bold text-orange-400 tracking-wider uppercase">
                       Online Print Lab
                     </span>
-                    <h4 className="text-lg font-bold text-white font-heading mt-0.5">
+                    <h3 className="text-lg font-bold text-white font-heading mt-0.5">
                       Direct Online Support
-                    </h4>
+                    </h3>
                   </div>
 
                   <div className="space-y-3.5 text-xs text-slate-300">
@@ -415,6 +429,6 @@ export default function PrintingPage({ setActivePage }) {
           </div>
         </section>
       </div>
-    </div>
+    </article>
   );
 }

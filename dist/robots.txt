@@ -1,5 +1,19 @@
+# Robots.txt for https://ssve.cc/
+# Allows Googlebot and major search engine crawlers full access to indexable pages and assets
+
 User-agent: *
 Allow: /
+Allow: /logo.png
+Allow: /logo.webp
+Allow: /prof-jatin-shah.jpg
+Allow: /prof-jatin-shah.webp
+Allow: /assets/
 
-# Direct links to XML Sitemap
+# Block non-indexable build artifacts & directories
+Disallow: /dist/
+Disallow: /node_modules/
+Disallow: /src/
+
+# Sitemap Location
 Sitemap: https://ssve.cc/sitemap.xml
+

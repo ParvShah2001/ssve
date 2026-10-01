@@ -58,6 +58,10 @@ export default function HomePage({ setActivePage }) {
       {/* TOP FLOATING INSTRUCTION PILL (HIGHEST Z-INDEX ON TOP OF THE DIVIDER LINE) */}
       {/* ========================================================================= */}
       <div className="absolute top-3 sm:top-5 inset-x-0 z-50 pointer-events-none flex items-center justify-center px-4">
+        {/* Exact single H1 for the page with primary topic keywords */}
+        <h1 className="sr-only">
+          Shri Siddhivinayak – Engineering Classes Coaching &amp; 3D Printing Service
+        </h1>
         <div className="inline-flex items-center gap-2 px-4 sm:px-5 py-1.5 sm:py-2 rounded-full bg-slate-950/95 backdrop-blur-md border border-slate-700/90 shadow-[0_4px_25px_rgba(0,0,0,0.8)] text-xs font-semibold tracking-wider text-slate-200">
           <MousePointerClick className="w-3.5 h-3.5 text-orange-400" />
           <span className="hidden sm:inline">Hover to expand • Click to enter</span>
@@ -68,7 +72,8 @@ export default function HomePage({ setActivePage }) {
       {/* ========================================================================= */}
       {/* SIDE A: SHRI SIDDHIVINAYAK ENGINEERING CLASSES (LEFT) */}
       {/* ========================================================================= */}
-      <div
+      <article
+        aria-label="Shri Siddhivinayak Engineering Classes"
         onMouseEnter={() => setHoveredSide('classes')}
         onMouseLeave={() => setHoveredSide(null)}
         onClick={() => navigateTo('classes')}
@@ -84,7 +89,9 @@ export default function HomePage({ setActivePage }) {
         <div className="absolute inset-0 z-0">
           <img
             src="https://images.unsplash.com/photo-1523240795612-9a054b0db644?auto=format&fit=crop&q=75&w=1200"
-            alt="Engineering Students Learning in Classroom"
+            alt="Engineering diploma and degree students learning mathematics and mechanics in classroom coaching"
+            width="1200"
+            height="800"
             loading="eager"
             decoding="async"
             className={`w-full h-full object-cover transition-transform duration-[2000ms] ease-out ${
@@ -122,9 +129,9 @@ export default function HomePage({ setActivePage }) {
               <span className="text-blue-300 font-extrabold text-[11px] sm:text-xs md:text-sm tracking-wider uppercase block font-heading">
                 Academic Excellence
               </span>
-              <h1 className="text-xl sm:text-3xl lg:text-4xl xl:text-5xl font-extrabold text-white tracking-tight font-heading leading-tight drop-shadow-sm">
+              <h2 className="text-xl sm:text-3xl lg:text-4xl xl:text-5xl font-extrabold text-white tracking-tight font-heading leading-tight drop-shadow-sm">
                 From Diploma foundations to Degree mastery—we guide you through.
-              </h1>
+              </h2>
             </div>
 
             <p className="text-slate-200 text-xs sm:text-sm lg:text-base leading-relaxed">
@@ -135,11 +142,11 @@ export default function HomePage({ setActivePage }) {
             {hoveredSide === 'classes' && (
               <div className="pt-2 grid grid-cols-1 sm:grid-cols-2 gap-2.5 sm:gap-3 animate-fadeIn hidden sm:grid max-w-md">
                 <div className="bg-white/10 backdrop-blur-md p-3.5 rounded-xl border border-white/15 shadow-sm">
-                  <div className="text-xs font-bold text-white">Diploma Coaching</div>
+                  <h3 className="text-xs font-bold text-white">Diploma Coaching</h3>
                   <div className="text-[11px] text-blue-200">MSBTE All Semesters</div>
                 </div>
                 <div className="bg-white/10 backdrop-blur-md p-3.5 rounded-xl border border-white/15 shadow-sm">
-                  <div className="text-xs font-bold text-white">Degree Engineering</div>
+                  <h3 className="text-xs font-bold text-white">Degree Engineering</h3>
                   <div className="text-[11px] text-blue-200">FE to BE All Branches</div>
                 </div>
               </div>
@@ -184,7 +191,7 @@ export default function HomePage({ setActivePage }) {
         {/* THICK DIFFERENTIATING DIVIDING LINE (PHYSICALLY ATTACHED TO RIGHT EDGE) */}
         {/* ========================================================================= */}
         <div className="hidden lg:block absolute top-0 bottom-0 right-0 w-2.5 sm:w-3 bg-gradient-to-b from-blue-400 via-amber-300 to-orange-500 shadow-[0_0_25px_rgba(251,191,36,0.85)] z-40 pointer-events-none" />
-      </div>
+      </article>
 
       {/* Horizontal thick divider for mobile screens */}
       <div className="lg:hidden w-full h-2 bg-gradient-to-r from-blue-500 via-amber-300 to-orange-500 shadow-md z-30" />
@@ -192,7 +199,8 @@ export default function HomePage({ setActivePage }) {
       {/* ========================================================================= */}
       {/* SIDE B: SHRI SIDDHIVINAYAK 3D PRINTING SERVICE (RIGHT) */}
       {/* ========================================================================= */}
-      <div
+      <article
+        aria-label="Shri Siddhivinayak 3D Printing Service"
         onMouseEnter={() => setHoveredSide('printing')}
         onMouseLeave={() => setHoveredSide(null)}
         onClick={() => navigateTo('printing')}
@@ -208,7 +216,9 @@ export default function HomePage({ setActivePage }) {
         <div className="absolute inset-0 z-0">
           <img
             src="https://images.unsplash.com/photo-1581092160607-ee22621dd758?auto=format&fit=crop&q=75&w=1200"
-            alt="Precision Industrial 3D Printer and Prototypes"
+            alt="Precision industrial FDM 3D printer manufacturing rapid prototypes and parts"
+            width="1200"
+            height="800"
             loading="eager"
             decoding="async"
             className={`w-full h-full object-cover transition-transform duration-[2000ms] ease-out ${
@@ -244,7 +254,7 @@ export default function HomePage({ setActivePage }) {
           >
             <div className="space-y-1">
               <span className="text-orange-300 font-extrabold text-[11px] sm:text-xs md:text-sm tracking-wider uppercase block font-heading">
-                Custom 3D Printing & Prototyping
+                Custom 3D Printing &amp; Prototyping
               </span>
               <h2 className="text-xl sm:text-3xl lg:text-4xl xl:text-5xl font-extrabold text-white tracking-tight font-heading leading-tight drop-shadow-sm">
                 Precision 3D printing for prototypes, parts, and passion projects
@@ -259,12 +269,12 @@ export default function HomePage({ setActivePage }) {
             {hoveredSide === 'printing' && (
               <div className="pt-2 grid grid-cols-1 sm:grid-cols-2 gap-2.5 sm:gap-3 animate-fadeIn hidden sm:grid max-w-md">
                 <div className="bg-white/10 backdrop-blur-md p-3.5 rounded-xl border border-white/15 shadow-sm">
-                  <div className="text-xs font-bold text-white">Supported Materials</div>
+                  <h3 className="text-xs font-bold text-white">Supported Materials</h3>
                   <div className="text-[11px] text-orange-200">PLA, PETG, TPU, PVA</div>
                 </div>
                 <div className="bg-white/10 backdrop-blur-md p-3.5 rounded-xl border border-white/15 shadow-sm">
-                  <div className="text-xs font-bold text-white">Instant STL Quote</div>
-                  <div className="text-[11px] text-orange-200">Real-Time Volume & Price</div>
+                  <h3 className="text-xs font-bold text-white">Instant STL Quote</h3>
+                  <div className="text-[11px] text-orange-200">Real-Time Volume &amp; Price</div>
                 </div>
               </div>
             )}
@@ -303,7 +313,7 @@ export default function HomePage({ setActivePage }) {
             <span>3D Printing Service</span>
           </div>
         </div>
-      </div>
+      </article>
     </div>
   );
 }

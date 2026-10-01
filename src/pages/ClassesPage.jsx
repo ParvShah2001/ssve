@@ -170,7 +170,7 @@ export default function ClassesPage({ setActivePage }) {
   };
 
   return (
-    <div className="min-h-screen bg-[#071326] text-slate-100 selection:bg-blue-600 selection:text-white relative overflow-hidden pb-12">
+    <article className="min-h-screen bg-[#071326] text-slate-100 selection:bg-blue-600 selection:text-white relative overflow-hidden pb-12">
       {/* Subtle Technical Blueprint Ambient Background */}
       <div className="fixed inset-0 pointer-events-none z-0">
         <div className="absolute inset-0 opacity-15 bg-[radial-gradient(#38bdf8_1px,transparent_1px)] [background-size:28px_28px]" />
@@ -194,9 +194,9 @@ export default function ClassesPage({ setActivePage }) {
                 </div>
 
                 <h1 className="text-3xl sm:text-5xl font-extrabold text-white tracking-tight font-heading leading-tight">
-                  From Diploma Foundations to Degree Mastery—
+                  Engineering Classes Navi Mumbai—
                   <span className="bg-gradient-to-r from-blue-400 via-cyan-300 to-blue-200 bg-clip-text text-transparent block mt-0.5">
-                    We Guide You Through.
+                    From Diploma Foundations to Degree Mastery.
                   </span>
                 </h1>
 
@@ -244,21 +244,22 @@ export default function ClassesPage({ setActivePage }) {
                         <source srcSet="/prof-jatin-shah.webp" type="image/webp" />
                         <img
                           src="/prof-jatin-shah.jpg"
-                          alt="Prof. Jatin Shah - Founder & Owner Shri Siddhivinayak Classes"
+                          alt="Prof. Jatin Shah BE Mechanical - Founder and Lead Engineering Faculty at Shri Siddhivinayak Classes"
                           width="96"
                           height="96"
                           loading="eager"
+                          decoding="async"
                           className="w-full h-full object-cover rounded-xl"
                         />
                       </picture>
                     </div>
                     <div>
                       <span className="text-[10px] font-extrabold text-blue-400 tracking-wider uppercase">
-                        Founder & Owner
+                        Founder &amp; Owner
                       </span>
-                      <h3 className="text-xl font-bold text-white font-heading">
+                      <h2 className="text-xl font-bold text-white font-heading">
                         Prof. Jatin Shah
-                      </h3>
+                      </h2>
                       <p className="text-xs text-blue-300 font-semibold">
                         B.E. in Mechanical Engineering
                       </p>
@@ -273,9 +274,9 @@ export default function ClassesPage({ setActivePage }) {
                   </p>
 
                   <div className="p-3.5 rounded-xl bg-blue-950/50 border border-blue-900/60 text-xs text-slate-200 space-y-1.5">
-                    <strong className="text-blue-300 text-[11px] uppercase tracking-wider block">
+                    <h3 className="text-blue-300 text-[11px] uppercase tracking-wider block font-bold">
                       Expertise Across All Core Subjects:
-                    </strong>
+                    </h3>
                     <p className="text-slate-300 leading-relaxed text-[11px]">
                       Applied Mathematics (M1 to M4) • Engineering Mechanics • Strength of Materials (SOM) • Theory of Machines (TOM) • Thermodynamics & Fluid Mechanics • Machine Design (EMD).
                     </p>
@@ -366,8 +367,22 @@ export default function ClassesPage({ setActivePage }) {
         {/* ========================================================================= */}
         {/* 3. DIRECT ENQUIRY & CLASSROOM LOCATION */}
         {/* ========================================================================= */}
-        <section id="enquiry" className="pt-10 sm:pt-14 scroll-mt-28">
+        <section id="enquiry" aria-labelledby="enquiry-heading" className="pt-10 sm:pt-14 scroll-mt-28">
           <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div className="mb-6 flex flex-col sm:flex-row sm:items-end justify-between gap-2">
+              <div>
+                <span className="text-xs font-bold text-blue-400 tracking-wider uppercase">
+                  Admissions &amp; Campus
+                </span>
+                <h2 id="enquiry-heading" className="text-2xl sm:text-3xl font-extrabold text-white font-heading">
+                  Admission Guidance &amp; Coaching Center
+                </h2>
+              </div>
+              <p className="text-xs text-slate-400 max-w-md">
+                Direct enrollment and classroom guidance with Prof. Jatin Shah in Kopar Khairane, Navi Mumbai.
+              </p>
+            </div>
+
             <div className="grid grid-cols-1 lg:grid-cols-12 gap-8 items-start">
               
               {/* Form Col (7 cols) */}
@@ -614,6 +629,6 @@ export default function ClassesPage({ setActivePage }) {
           </div>
         </section>
       </div>
-    </div>
+    </article>
   );
 }

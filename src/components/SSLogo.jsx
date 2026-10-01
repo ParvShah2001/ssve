@@ -56,7 +56,13 @@ export default function SSLogo({
           <source srcSet="/logo.webp" type="image/webp" />
           <img
             src="/logo.png"
-            alt="Shri Siddhivinayak Official Emblem"
+            alt={
+              vertical === 'classes'
+                ? 'Shri Siddhivinayak Engineering Classes Logo'
+                : vertical === 'printing'
+                ? 'Shri Siddhivinayak 3D Printing Service Logo'
+                : 'Shri Siddhivinayak Enterprise Official Logo'
+            }
             width="64"
             height="64"
             className="w-full h-full object-contain filter drop-shadow-[0_2px_8px_rgba(0,0,0,0.5)] transition-transform duration-300 group-hover:scale-105"

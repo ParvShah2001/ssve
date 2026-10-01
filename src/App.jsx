@@ -102,20 +102,24 @@ export default function App() {
   useEffect(() => {
     const seoMap = {
       home: {
-        title: 'Shri Siddhivinayak | Premier Engineering Classes & 3D Printing Service',
-        desc: 'Premier Mumbai & Pune University engineering coaching by Prof. Jatin Shah (24+ yrs exp) in Navi Mumbai, and precision on-demand 3D printing & rapid prototyping service across India.',
+        title: 'Shri Siddhivinayak | Classes & 3D Printing',
+        desc: 'Premier Mumbai & Pune Univ engineering coaching by Prof. Jatin Shah (24+ yrs exp) & precision 3D printing across India. Instant STL quotes & 100% pass record.',
+        canonical: 'https://ssve.cc/',
       },
       classes: {
-        title: 'Engineering Classes Navi Mumbai | Prof. Jatin Shah | Shri Siddhivinayak',
-        desc: 'Exclusive engineering coaching for Mumbai & Pune University by Prof. Jatin Shah (BE Mechanical, 24+ yrs experience). Kopar Khairane, Navi Mumbai.',
+        title: 'Engineering Classes Navi Mumbai | Prof. Jatin Shah',
+        desc: 'Score top marks with Prof. Jatin Shah (24+ yrs exp). Diploma & Degree engineering coaching for Mumbai & Pune University. 100% pass record. Enrol today!',
+        canonical: 'https://ssve.cc/classes',
       },
       printing: {
-        title: '3D Printing Service India | Rapid Prototyping & Custom STL | Shri Siddhivinayak',
-        desc: 'Precision online FDM 3D printing in PLA, PETG, TPU, and PVA. Upload STL files for live pricing, high tolerance, and doorstep delivery across India.',
+        title: '3D Printing Service India | Rapid Prototyping SSVE',
+        desc: 'Precision on-demand 3D printing in PLA, PETG, TPU & PVA. Upload your STL file for instant live pricing, 0.3mm tolerance & fast delivery across India.',
+        canonical: 'https://ssve.cc/printing',
       },
       quote: {
-        title: 'Instant 3D STL Quote Calculator | Online Slicing Pricing | Shri Siddhivinayak',
-        desc: 'Upload your 3D STL model for instant geometry analysis, volume calculation, infill density selection, and live automated quotation.',
+        title: 'Instant 3D STL Quote Calculator | Online Slicing',
+        desc: 'Upload your STL model for instant geometry analysis, volume calculation, infill density selection, live pricing & fast courier delivery across India.',
+        canonical: 'https://ssve.cc/quote',
       },
     };
 
@@ -123,13 +127,22 @@ export default function App() {
     document.title = currentSeo.title;
 
     const metaDesc = document.querySelector('meta[name="description"]');
-    if (metaDesc) {
-      metaDesc.setAttribute('content', currentSeo.desc);
-    }
+    if (metaDesc) metaDesc.setAttribute('content', currentSeo.desc);
+
     const ogTitle = document.querySelector('meta[property="og:title"]');
-    if (ogTitle) {
-      ogTitle.setAttribute('content', currentSeo.title);
-    }
+    if (ogTitle) ogTitle.setAttribute('content', currentSeo.title);
+
+    const ogDesc = document.querySelector('meta[property="og:description"]');
+    if (ogDesc) ogDesc.setAttribute('content', currentSeo.desc);
+
+    const twitterTitle = document.querySelector('meta[name="twitter:title"]');
+    if (twitterTitle) twitterTitle.setAttribute('content', currentSeo.title);
+
+    const twitterDesc = document.querySelector('meta[name="twitter:description"]');
+    if (twitterDesc) twitterDesc.setAttribute('content', currentSeo.desc);
+
+    const canonicalLink = document.querySelector('link[rel="canonical"]');
+    if (canonicalLink) canonicalLink.setAttribute('href', currentSeo.canonical);
   }, [activePage]);
 
   const handlePageChange = (pageId) => {

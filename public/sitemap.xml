@@ -3,33 +3,37 @@
         xmlns:image="http://www.google.com/schemas/sitemap-image/1.1">
   <url>
     <loc>https://ssve.cc/</loc>
-    <lastmod>2026-09-24</lastmod>
+    <lastmod>2026-10-01</lastmod>
     <changefreq>weekly</changefreq>
     <priority>1.0</priority>
     <image:image>
       <image:loc>https://ssve.cc/logo.png</image:loc>
-      <image:title>Shri Siddhivinayak Official Emblem</image:title>
+      <image:title>Shri Siddhivinayak Engineering Classes and 3D Printing Service</image:title>
     </image:image>
   </url>
   <url>
-    <loc>https://ssve.cc/#classes</loc>
-    <lastmod>2026-09-24</lastmod>
+    <loc>https://ssve.cc/classes</loc>
+    <lastmod>2026-10-01</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.9</priority>
     <image:image>
       <image:loc>https://ssve.cc/prof-jatin-shah.jpg</image:loc>
-      <image:title>Prof. Jatin Shah - Lead Engineering Faculty &amp; Founder</image:title>
+      <image:title>Prof. Jatin Shah - Lead Engineering Faculty and Founder</image:title>
     </image:image>
   </url>
   <url>
-    <loc>https://ssve.cc/#printing</loc>
-    <lastmod>2026-09-24</lastmod>
+    <loc>https://ssve.cc/printing</loc>
+    <lastmod>2026-10-01</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.9</priority>
+    <image:image>
+      <image:loc>https://ssve.cc/logo.png</image:loc>
+      <image:title>Custom 3D Printing and Rapid Prototyping Service India</image:title>
+    </image:image>
   </url>
   <url>
-    <loc>https://ssve.cc/#quote</loc>
-    <lastmod>2026-09-24</lastmod>
+    <loc>https://ssve.cc/quote</loc>
+    <lastmod>2026-10-01</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>
   </url>

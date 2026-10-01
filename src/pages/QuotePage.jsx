@@ -380,7 +380,7 @@ export default function QuotePage() {
   };
 
   return (
-    <div className="min-h-screen bg-[#0c0806] text-slate-100 selection:bg-orange-500 selection:text-white relative overflow-hidden pb-16">
+    <article className="min-h-screen bg-[#0c0806] text-slate-100 selection:bg-orange-500 selection:text-white relative overflow-hidden pb-16">
       {/* Background Ambience */}
       <div className="fixed inset-0 pointer-events-none z-0">
         <div className="absolute inset-0 opacity-15 bg-[radial-gradient(#ea580c_1px,transparent_1px)] [background-size:28px_28px]" />
@@ -494,7 +494,10 @@ export default function QuotePage() {
         ) : (
           <div className="grid grid-cols-1 lg:grid-cols-12 gap-8 items-start">
             {/* COLUMN 1 (7 COLS): UPLOAD & PARAMETERS */}
-            <div className="lg:col-span-7 space-y-6">
+            <section aria-labelledby="col1-heading" className="lg:col-span-7 space-y-6">
+              <h2 id="col1-heading" className="sr-only">
+                3D File Upload and Slicing Configuration
+              </h2>
               
               {/* File Upload Zone */}
               <div className="bg-[#180f0a]/90 rounded-3xl p-6 sm:p-8 border border-orange-500/20 shadow-xl space-y-4 backdrop-blur-md">
@@ -720,10 +723,13 @@ export default function QuotePage() {
                   </div>
                 </div>
               </div>
-            </div>
+            </section>
 
             {/* COLUMN 2 (5 COLS): LIVE QUOTATION BREAKDOWN */}
-            <div className="lg:col-span-5 sticky top-28 space-y-6">
+            <section aria-labelledby="col2-heading" className="lg:col-span-5 sticky top-28 space-y-6">
+              <h2 id="col2-heading" className="sr-only">
+                Live Slicing Quotation and Delivery Estimate
+              </h2>
               <div className="bg-[#180f0a]/90 rounded-3xl p-6 sm:p-7 border border-orange-500/30 shadow-2xl relative overflow-hidden space-y-5 backdrop-blur-md">
                 {/* Header */}
                 <div className="flex items-center justify-between pb-3 border-b border-orange-950/80">
@@ -857,10 +863,10 @@ export default function QuotePage() {
                   * Estimated quote will be verified by our print lab before dispatch.
                 </div>
               </div>
-            </div>
+            </section>
           </div>
         )}
       </div>
-    </div>
+    </article>
   );
 }
